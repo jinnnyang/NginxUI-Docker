@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1.3-labs
-FROM nginx:1.25.1-base
+FROM nginx:1.25.1-alpine3.17-slim
 
 RUN apk update && \
     apk add curl
