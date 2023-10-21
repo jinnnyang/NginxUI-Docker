@@ -10,8 +10,6 @@ services:
     ports:
       - 80:80
       - 443:443
-    links:
-      - portainer
     volumes:
       - nginx_conf:/etc/nginx:rw
       - nginxui_data:/etc/nginx-ui:rw
