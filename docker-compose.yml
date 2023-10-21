@@ -22,13 +22,13 @@ services:
 volumes:
   nginx_conf:
     name: nginx_conf
-    external: true
+
   nginxui_data:
     name: nginxui_data
-    external: true
+
   certs:
     name: certs
-    external: true
+
 
 networks:
   application_network:
