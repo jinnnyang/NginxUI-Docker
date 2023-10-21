@@ -1,0 +1,37 @@
+version: '3.9'
+name: interface
+services:
+  nginxui:
+    image: nginxui:1.9.9
+    container_name: NginxUI
+    environment:
+      - TZ=Asia/Shanghai
+      - TIMEZONE==Asia/Shanghai
+    ports:
+      - 80:80
+      - 443:443
+    links:
+      - portainer
+    volumes:
+      - nginx_conf:/etc/nginx:rw
+      - nginxui_data:/etc/nginx-ui:rw
+      - certs:/etc/ssl:ro
+    networks:
+      - application_network
+    restart: always
+
+
+volumes:
+  nginx_conf:
+    name: nginx_conf
+    external: true
+  nginxui_data:
+    name: nginxui_data
+    external: true
+  certs:
+    name: certs
+    external: true
+
+networks:
+  application_network:
+    name: application_network
