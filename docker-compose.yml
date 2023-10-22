@@ -15,7 +15,8 @@ services:
       - nginxui_data:/etc/nginx-ui:rw
       - certs:/etc/ssl:ro
     networks:
-      - application_network
+      application_network:
+        ipv4_address: 172.20.0.5
     restart: always
 
 
@@ -33,3 +34,9 @@ volumes:
 networks:
   application_network:
     name: application_network
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.20.0.0/16
+          gateway: 172.20.0.1
